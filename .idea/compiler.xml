@@ -10,12 +10,14 @@
         <module name="course-rating" />
         <module name="books" />
         <module name="discovery" />
+        <module name="course-chat" />
         <module name="course-information" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="books" target="11" />
       <module name="course" target="11" />
+      <module name="course-chat" target="1.8" />
       <module name="course-information" target="11" />
       <module name="course-rating" target="11" />
       <module name="discovery" target="11" />

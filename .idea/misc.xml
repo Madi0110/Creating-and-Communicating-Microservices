@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/books" />
+    <file type="web" url="file://$PROJECT_DIR$/course-chat" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -11,6 +12,7 @@
         <option value="$PROJECT_DIR$/course-rating/pom.xml" />
         <option value="$PROJECT_DIR$/course-information/pom.xml" />
         <option value="$PROJECT_DIR$/books/pom.xml" />
+        <option value="$PROJECT_DIR$/course-chat/pom.xml" />
       </list>
     </option>
   </component>
