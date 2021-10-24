@@ -15,5 +15,4 @@ public class CourseList {
     private Double price;
     private Integer rating;
 
-
 }
