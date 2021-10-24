@@ -11,6 +11,8 @@
         <option value="$PROJECT_DIR$/discovery/pom.xml" />
         <option value="$PROJECT_DIR$/books/pom.xml" />
         <option value="$PROJECT_DIR$/course-rating/pom.xml" />
+        <option value="$PROJECT_DIR$/course-chat/pom.xml" />
+        <option value="$PROJECT_DIR$/course-information/pom.xml" />
       </list>
     </option>
   </component>
