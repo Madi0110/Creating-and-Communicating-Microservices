@@ -1,9 +1,10 @@
 package com.example.books.model;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserBook {
@@ -11,3 +12,7 @@ public class UserBook {
     private List<Book> books;
 
 }
+//@Data
+//@NoArgsConstructor
+//@Getter
+//@Setter
