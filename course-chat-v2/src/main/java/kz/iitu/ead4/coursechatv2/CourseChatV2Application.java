@@ -1,24 +1,18 @@
-package com.example.course_chat;
-
+package kz.iitu.ead4.coursechatv2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@EnableEurekaClient
-@EnableSwagger2
-public class CourseChatApplication {
+public class CourseChatV2Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(CourseChatApplication.class, args);
+        SpringApplication.run(CourseChatV2Application.class, args);
     }
 
     @Bean
-    @LoadBalanced
+//    @LoadBalanced
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
