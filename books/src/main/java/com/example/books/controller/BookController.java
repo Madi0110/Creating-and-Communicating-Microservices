@@ -3,26 +3,27 @@ package com.example.books.controller;
 
 import com.example.books.model.Book;
 import com.example.books.model.UserBook;
+import com.example.books.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
+@RequestMapping("/books")
 public class BookController {
-    @GetMapping("/courseId")
-    public ResponseEntity<?> getCourseBooks(@PathVariable Long courseId){
-        List<Book> courseBooks = new ArrayList<>();
+    @Autowired
+    private BookService bookService;
 
-        courseBooks.add(Book.builder().id(1L).title("Math").description("Mathematica").build());
+    @GetMapping("/getCourseBooks")
+    public ResponseEntity<?> getCourseBooks(@RequestParam("courseId") Long courseId){
+        return ResponseEntity.ok(bookService.getByCourseId(courseId));
+    }
 
-        courseBooks.add(Book.builder().id(2L).title("Geo").description("Geography").build());
-
-        courseBooks.add(Book.builder().id(3L).title("His").description("History").build());
-
-        return ResponseEntity.ok(new UserBook(courseId, courseBooks));
+    @GetMapping("/getCourseBook")
+    public ResponseEntity<?> getCoursesWhereUseBook(@RequestParam("bookId") Long bookId){
+        return ResponseEntity.ok(bookService.getBookCourse(bookId));
     }
 }

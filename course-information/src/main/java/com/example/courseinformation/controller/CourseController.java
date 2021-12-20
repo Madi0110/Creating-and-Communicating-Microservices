@@ -1,30 +1,54 @@
 package com.example.courseinformation.controller;
 
 import com.example.courseinformation.model.Course;
-import com.example.courseinformation.model.UserCourse;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.courseinformation.repository.CourseRepository;
+import com.example.courseinformation.service.CourseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 @RestController
-@RequestMapping("/course/info")
 public class CourseController {
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<?> getUserCourses(@PathVariable Long userId){
-        List<Course> userCourses = new ArrayList<>();
+    @Autowired
+    private CourseServiceImpl courseServiceImpl;
 
-        userCourses.add(Course.builder().id(1L).title("Math").description("Mathematica").price(100.0).build());
+    @Autowired
+    private CourseRepository courseRepository;
 
-        userCourses.add(Course.builder().id(2L).title("Geo").description("Geography").price(150.0).build());
-
-        userCourses.add(Course.builder().id(3L).title("His").description("History").price(100.0).build());
-
-        return ResponseEntity.ok(new UserCourse(userId, userCourses));
+    @GetMapping("/courses")
+    public List<Course> getAllCourses(){
+//        Iterable<Course> courses;
+//        courses = courseServiceImpl.findAll();
+        List<Course> counts = new ArrayList<>();
+        courseServiceImpl.findAll().forEach(counts::add);
+        return counts;
+//        return courseServiceImpl.findAll();
     }
+
+
+
+    @GetMapping(path="/all")
+    public @ResponseBody Iterable<Course> getAllUsers() {
+        // This returns a JSON or XML with the users
+        return courseRepository.findAll();
+    }
+//    @GetMapping("/courses/{title}")
+//    public Iterable<Course> allCoursesByTitle(@PathVariable String title) {
+//        Iterable<Course> courses;
+//        courses = courseServiceImpl.findAll(title);
+//        return courses;
+//    }
+    @GetMapping("/course/{id}")
+    public Course getCourseById(@PathVariable int id) {
+        Course course;
+        course = courseServiceImpl.findById(id);
+        return course;
+    }
+
+
 }

@@ -10,9 +10,4 @@ import java.util.List;
 public class UserBook {
     private Long courseId;
     private List<Book> books;
-
 }
-//@Data
-//@NoArgsConstructor
-//@Getter
-//@Setter

@@ -1,14 +1,28 @@
 package com.example.courseinformation.model;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
-@Builder
+import javax.persistence.*;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Table(name = "course")
 public class Course {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "name")
     private String title;
+    @Column(name = "description")
     private String description;
-    private Double price;
+
+//    public Course(String title, String description) {
+//        this.title = title;
+//        this.description = description;
+//    }
 
 }
